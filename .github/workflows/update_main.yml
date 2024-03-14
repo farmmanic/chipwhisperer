@@ -21,6 +21,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git remote add upstream https://github.com/newaetech/chipwhisperer.git
           git checkout develop
+          git config pull.rebase true
         # Adds upstream remote with variable substitution for organization and repository name
       
       - name: Fetch upstream changes
