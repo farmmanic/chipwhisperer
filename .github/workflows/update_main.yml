@@ -21,7 +21,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           repository=$(basename $(dirname $home))/$(basename $home)
       - name: Add upstream remote
-        run: git remote add upstream https://github.com/${repository}
+        run: git remote add upstream https://github.com/$(basename $(dirname $GITHUB_WORKSPACE))/$(basename $GITHUB_WORKSPACE).git
         # Adds upstream remote with variable substitution for organization and repository name
       
       - name: Fetch upstream changes
