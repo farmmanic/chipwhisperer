@@ -28,7 +28,7 @@ jobs:
         run: git fetch upstream develop
       
       - name: Merge upstream changes
-        run: git merge --strategy-option=theirs upstream/develop
+        run: git merge --allow-unrelated-histories --strategy-option=theirs upstream/develop
         # Replace 'main' with the branch name of the main repository
       
       - name: Push changes to forked repository
