@@ -19,7 +19,7 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git remote add upstream https://github.com/$(basename $(dirname $GITHUB_WORKSPACE))/$(basename $GITHUB_WORKSPACE).git
+          git remote add upstream https://github.com/newaetech/chipwhisperer.git
 
         # Adds upstream remote with variable substitution for organization and repository name
       
