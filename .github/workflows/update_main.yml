@@ -25,7 +25,7 @@ jobs:
         # Adds upstream remote with variable substitution for organization and repository name
       
       - name: Fetch upstream changes
-        run: git fetch upstream develop
+        run: git fetch upstream develop --exclude='.github/workflows/*'
       
       - name: Merge upstream changes
         run: git merge --allow-unrelated-histories --strategy-option=theirs upstream/develop
