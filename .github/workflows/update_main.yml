@@ -24,10 +24,10 @@ jobs:
         # Adds upstream remote with variable substitution for organization and repository name
       
       - name: Fetch upstream changes
-        run: git fetch upstream
+        run: git fetch upstream develop
       
       - name: Merge upstream changes
-        run: git pull upstream
+        run: git pull upstream develop
         # Replace 'main' with the branch name of the main repository
       
       - name: Push changes to forked repository
