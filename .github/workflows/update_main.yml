@@ -1,0 +1,35 @@
+name: Sync Forked Repos
+
+on:
+  schedule:
+    # Schedule to run every day at 00:00 UTC
+    - cron: '0 0 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Sync Forked Repositories
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      
+      - name: Configure Git
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          repository=$(basename $(dirname $home))/$(basename $home)
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/${repository}
+        # Adds upstream remote with variable substitution for organization and repository name
+      
+      - name: Fetch upstream changes
+        run: git fetch upstream
+      
+      - name: Merge upstream changes
+        run: git merge upstream/master --no-edit
+        # Replace 'main' with the branch name of the main repository
+      
+      - name: Push changes to forked repository
+        run: git push origin HEAD
